@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
 namespace DigitalLibrary.Models
 {
     public class User
@@ -16,5 +15,19 @@ namespace DigitalLibrary.Models
         public string Role { get; set; }
         public string UserPhone { get; set; }
         public string Location { get; set; }
+
+        public static bool Insert(User user)
+        {
+            Database_Helpers db = new Database_Helpers();
+            if (db.Insert("Users", user))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
+    
 }
