@@ -1,0 +1,79 @@
+﻿@model IEnumerable<DigitalLibrary.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Book Index</h2>
+<table class="table">
+    <tr>
+        <th>
+            Book Name
+        </th>
+        <th>
+            Author Name
+        </th>
+        <th>
+            Publisher Name
+        </th>
+        <th>
+            Edition Number
+        </th>
+        <th>
+            Book Completed
+        </th>
+        <th>
+            No of Pages
+        </th>
+        <th>
+            No of Abwaabs
+        </th>
+        <th>
+            Book Cover
+        </th>
+        <th>
+            Publishing Year
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+               @item.Name
+            </td>
+            <td>
+               @item.AuthorId
+            </td>
+            <td>
+                @item.PublisherId
+            </td>
+            <td>
+                @item.EditionNumber
+            </td>
+            <td>
+                @item.BookCompleted
+            </td>
+            <td>
+                @item.NoOfPages
+            </td>
+            <td>
+                @item.NoOfAbwaabs
+            </td>
+            <td>
+                <img src="~/Asserts/Book_Images/@item.BookCover" width="120" height="120" />
+            </td>
+            <td>
+                @item.PublishingYear
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
