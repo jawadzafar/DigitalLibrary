@@ -12,14 +12,27 @@ namespace DigitalLibrary.Controllers
         [HttpGet]
         public ActionResult Register()
         {
-            return View(new User());
+            return View(new Users());
         }
 
         [HttpPost]
-        public ActionResult Register(User user)
+        public ActionResult Register(Users user)
         {
-            
-            return View();
+            if (Users.Save(user))
+            {
+                if(user.Role == "manager")
+                {
+                    return RedirectToAction("Index","ManagerDashboard");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "UserDashboard");
+                }
+            }
+            else
+            {
+                return View();
+            }
         }
         public ActionResult Login()
         {
