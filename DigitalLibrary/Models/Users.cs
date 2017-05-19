@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 namespace DigitalLibrary.Models
@@ -27,6 +28,45 @@ namespace DigitalLibrary.Models
             {
                 return false;
             }
+        }
+
+        internal static Users Exist(Users user)
+        {
+            Database_Helpers db = new Database_Helpers();
+            Users _user = new Users();
+            string query = "select * from Users where Name='" + user.Name + "' and password='" + user.Password+ "'";
+            try
+            {
+                db.Connection.Open();
+                SqlCommand cmd = new SqlCommand(query, db.Connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        _user = new Users()
+                        {
+                            Id = Convert.ToInt16( reader["Id"].ToString()),
+                            Name = reader["Name"].ToString(),
+                            Password= reader["Password"].ToString(),
+                            Role = reader["Role"].ToString()
+                        };
+
+                    }
+                }
+                return _user;
+            }
+            catch (Exception ex)
+            {
+
+                db.Connection.Close();
+            }
+            finally
+            {
+                db.Connection.Close();
+            }
+
+            return _user;
         }
     }
     

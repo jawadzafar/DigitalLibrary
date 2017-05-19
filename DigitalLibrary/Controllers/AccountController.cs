@@ -34,8 +34,37 @@ namespace DigitalLibrary.Controllers
                 return View();
             }
         }
+        [HttpGet]
         public ActionResult Login()
         {
+            
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(Users user)
+        {
+            if (Users.Exist(user)!=null)
+            {
+
+                Session["User"] = user;
+
+                if (user.Role == "admin")
+                {
+                    return RedirectToAction("Index", "AdminDashboard");
+                }
+                else if (user.Role == "manager")
+                {
+                    return RedirectToAction("Index", "ManagerDashboard");
+                }
+                else if (user.Role == "user")
+                {
+                    return RedirectToAction("Index", "UserDashboard");
+                }
+                else
+                {
+                    return View();
+                }
+            }
             return View();
         }
     }
