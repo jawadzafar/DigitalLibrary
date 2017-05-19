@@ -33,7 +33,7 @@ namespace DigitalLibrary.Models
         internal static Users Exist(Users user)
         {
             Database_Helpers db = new Database_Helpers();
-            Users _user = new Users();
+            Users _user = null;
             string query = "select * from Users where Name='" + user.Name + "' and password='" + user.Password+ "'";
             try
             {

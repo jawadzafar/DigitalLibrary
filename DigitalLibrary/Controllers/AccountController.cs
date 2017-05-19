@@ -38,25 +38,26 @@ namespace DigitalLibrary.Controllers
         public ActionResult Login()
         {
             
-            return View();
+            return View( new Users());
         }
         [HttpPost]
         public ActionResult Login(Users user)
         {
-            if (Users.Exist(user)!=null)
+            Users LogedInUser = Users.Exist(user);
+            if (LogedInUser != null)
             {
 
-                Session["User"] = user;
+                Session["User"] = LogedInUser;
 
-                if (user.Role == "admin")
+                if (LogedInUser.Role == "admin")
                 {
                     return RedirectToAction("Index", "AdminDashboard");
                 }
-                else if (user.Role == "manager")
+                else if (LogedInUser.Role == "manager")
                 {
                     return RedirectToAction("Index", "ManagerDashboard");
                 }
-                else if (user.Role == "user")
+                else if (LogedInUser.Role == "user")
                 {
                     return RedirectToAction("Index", "UserDashboard");
                 }
