@@ -1,0 +1,43 @@
+﻿@model  DigitalLibrary.Models.Publisher
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+
+@using (Html.BeginForm("Edit", "Publishers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-horizontal">
+            <h4>Pages</h4>
+            <hr />
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group">
+                <label name="" class="col-md-2 form-control">Publisher Name</label>
+                <div class="col-md-10">
+                    <input name="Name" type="text" value="@Model.Name" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 form-control">Publisher Address</label>
+                <div class="col-md-10">
+                    <input name="Address" type="text" value="@Model.Address" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Update" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+
+</div>

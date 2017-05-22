@@ -1,0 +1,61 @@
+﻿@model  DigitalLibrary.Models.Page
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+
+@using (Html.BeginForm("Edit", "Pages", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-horizontal">
+            <h4>Pages</h4>
+            <hr />
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group">
+                <label name="" class="col-md-2 form-control">Baab Name</label>
+                <div class="col-md-10">
+                    <input name="BaabId" type="text" value="@Model.BaabId" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 form-control">Book Name</label>
+                <div class="col-md-10">
+                    <input name="BookId" type="text" value="@Model.BookId" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 form-control">Page Details</label>
+                <div class="col-md-10">
+                    <input name="PageDetails" type="text" value="@Model.PageDetails" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 form-control">Page Number Display</label>
+                <div class="col-md-10">
+                    <input name="PageNumberDisplay" type="text" value="@Model.PageNumberDisplay" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 form-control">Page Tag</label>
+                <div class="col-md-10">
+                    <input name="PageTag" type="text" value="@Model.PageTag" class="form-control" />
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Update" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+
+</div>

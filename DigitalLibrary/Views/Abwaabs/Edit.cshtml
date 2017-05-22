@@ -1,0 +1,55 @@
+﻿@model  DigitalLibrary.Models.Abwaab
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+
+@using (Html.BeginForm("Edit", "Abwaabs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-horizontal">
+            <h4>Abaabs</h4>
+            <hr />
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group">
+                <label name="" class="col-md-2 form-control">Name</label>
+                <div class="col-md-10">
+                    <input name="Name" type="text" value="@Model.Name" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 form-control">Baab No</label>
+                <div class="col-md-10">
+                    <input name="BaabNo" type="text" value="@Model.BaabNo" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 form-control">No Of Pages</label>
+                <div class="col-md-10">
+                    <input name="NoOfPages" type="text" value="@Model.NoOfPages" class="form-control" />
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-2 form-control">Book Name</label>
+                <div class="col-md-10">
+                    <input name="BookId" type="text" value="@Model.BookId" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Update" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+
+</div>

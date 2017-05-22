@@ -36,6 +36,7 @@ namespace DigitalLibrary.Models
                         books.Name = reader["Name"].ToString();
                         books.AuthorId = (int)reader["AuthorId"];
                         books.PublisherId = (int)reader["PublisherId"];
+                        books.EditionNumber = (int)reader["EditionNumber"];
                         books.PublishingYear = Convert.ToDateTime(reader["PublishingYear"].ToString());
                         books.BookCompleted = Convert.ToByte(reader["BookCompleted"]);
                         books.NoOfPages = Convert.ToInt16(reader["NoOfPages"]);

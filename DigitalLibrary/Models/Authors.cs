@@ -6,19 +6,20 @@ using System.Web;
 
 namespace DigitalLibrary.Models
 {
-    public class Publisher
+    public class Authors
     {
         [DontInsert]
         [DontUpdate]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Address { get; set; }
+        public string Desigination { get; set; }
+        public int UserId { get; set; }
 
-        internal static List<Publisher> GetAll()
+        internal static List<Authors> GetAll()
         {
-            Publisher publisher = new Publisher();
-            List<Publisher> ListOfPublisher = new List<Publisher>();
-            string query = "select * from publishers";
+            Authors author = new Authors();
+            List<Authors> AuthorList = new List<Authors>();
+            string query = "Select * from Authors";
             Database_Helpers db = new Database_Helpers();
             try
             {
@@ -29,29 +30,29 @@ namespace DigitalLibrary.Models
                 {
                     while (reader.Read())
                     {
-                        publisher = new Publisher();
-                        publisher.Id = (int)reader["Id"];
-                        publisher.Name = reader["Name"].ToString();
-                        publisher.Address = reader["Address"].ToString();
-                        ListOfPublisher.Add(publisher);
-
+                        author = new Authors();
+                        author.Id = (int)reader["Id"];
+                        author.Name = reader["Name"].ToString();
+                        author.UserId = (int)reader["UserId"];
+                        author.Desigination = reader["Desigination"].ToString();
+                        AuthorList.Add(author);
                     }
-
                 }
-                return ListOfPublisher;
+                return AuthorList;
             }
             catch (Exception ex)
             {
                 db.Connection.Close();
-                return ListOfPublisher;
+                return AuthorList;
                 throw ex;
             }
+            
         }
 
-        internal static bool Save(Publisher publisher)
+        internal static bool Save(Authors author)
         {
             Database_Helpers db = new Database_Helpers();
-            if (db.Insert("Publishers", publisher))
+            if(db.Insert("Authors", author))
             {
                 return true;
             }

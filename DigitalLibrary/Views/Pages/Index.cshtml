@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DigitalLibrary.Models.Page>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pages Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Add")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Book Name
+        </th>
+        <th>Baab Name</th>
+        <th>Page Tag</th>
+        <th>Page Number</th>
+        <th>Page Detail</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.BookId</td>
+            <td>@item.BaabId</td>
+            <td>@item.PageTag</td>
+            <td>@item.PageNumberDisplay</td>
+            <td>@item.PageDetails</td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
