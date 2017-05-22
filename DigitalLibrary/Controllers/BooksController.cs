@@ -127,5 +127,96 @@ namespace DigitalLibrary.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Book books = new Book();
+            string query = "Select * from books where id='" + id + "'";
+            Database_Helpers db = new Database_Helpers();
+            try
+            {
+                db.Connection.Open();
+                SqlCommand cmd = new SqlCommand(query, db.Connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        books = new Book();
+                        books.Id = (int)reader["Id"];
+                        books.Name = reader["Name"].ToString();
+                        books.AuthorId = (int)reader["AuthorId"];
+                        books.PublisherId = (int)reader["PublisherId"];
+                        books.EditionNumber = (int)reader["EditionNumber"];
+                        books.PublishingYear = Convert.ToDateTime(reader["PublishingYear"].ToString());
+                        books.BookCompleted = Convert.ToByte(reader["BookCompleted"]);
+                        books.NoOfPages = Convert.ToInt16(reader["NoOfPages"]);
+                        books.NoOfAbwaabs = Convert.ToInt16(reader["NoOfAbwaabs"]);
+                        books.BookCover = reader["BookCover"].ToString();
+                    }
+                }
+                return View(books);
+            }
+            catch (Exception ex)
+            {
+                db.Connection.Close();
+                return View(books);
+            }
+
+
+        }
+        [HttpPost]
+        public ActionResult Delete(Book book)
+        {
+            Database_Helpers db = new Database_Helpers();
+                if (db.delete("Books",  "where Id='" + book.Id + "'"))
+                {
+                    return RedirectToAction("Index", "Books");
+                }
+                else
+                {
+                    return View();
+                }
+            
+        }
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            Book books = new Book();
+            string query = "Select * from books where id='" + id + "'";
+            Database_Helpers db = new Database_Helpers();
+            try
+            {
+                db.Connection.Open();
+                SqlCommand cmd = new SqlCommand(query, db.Connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        books = new Book();
+                        books.Id = (int)reader["Id"];
+                        books.Name = reader["Name"].ToString();
+                        books.AuthorId = (int)reader["AuthorId"];
+                        books.PublisherId = (int)reader["PublisherId"];
+                        books.EditionNumber = (int)reader["EditionNumber"];
+                        books.PublishingYear = Convert.ToDateTime(reader["PublishingYear"].ToString());
+                        books.BookCompleted = Convert.ToByte(reader["BookCompleted"]);
+                        books.NoOfPages = Convert.ToInt16(reader["NoOfPages"]);
+                        books.NoOfAbwaabs = Convert.ToInt16(reader["NoOfAbwaabs"]);
+                        books.BookCover = reader["BookCover"].ToString();
+                    }
+                }
+                return View(books);
+            }
+            catch (Exception ex)
+            {
+                db.Connection.Close();
+                return View(books);
+            }
+
+
+        }
+
     }
 }

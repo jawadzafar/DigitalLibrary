@@ -127,5 +127,39 @@ namespace DigitalLibrary.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public ActionResult Details(int Id)
+        {
+            Page page = new Page();
+            string query = "Select * from Pages where Id='" + Id + "'";
+            Database_Helpers db = new Database_Helpers();
+            try
+            {
+                db.Connection.Open();
+                SqlCommand cmd = new SqlCommand(query, db.Connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        page = new Page();
+                        page.Id = (int)reader["Id"];
+                        page.BookId = (int)reader["BookId"];
+                        page.BaabId = (int)reader["BaabId"];
+                        page.PageDetails = reader["PageDetails"].ToString();
+                        page.PageNumberDisplay = reader["PageNumberDisplay"].ToString();
+                        page.PageTag = reader["PageTag"].ToString();
+                    }
+                }
+                return View(page);
+            }
+            catch (Exception ex)
+            {
+                db.Connection.Close();
+                return View(page);
+                throw ex;
+            }
+        }
     }
 }

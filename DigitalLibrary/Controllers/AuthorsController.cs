@@ -81,6 +81,89 @@ namespace DigitalLibrary.Controllers
                 }
         }
 
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Authors author = new Authors();
+            string query = "Select * from Authors where id='" + id + "'";
+            Database_Helpers db = new Database_Helpers();
+            try
+            {
+                db.Connection.Open();
+                SqlCommand cmd = new SqlCommand(query, db.Connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        author = new Authors();
+                        author.Id = (int)reader["Id"];
+                        author.Name = reader["Name"].ToString();
+                        author.Desigination = reader["Desigination"].ToString();
+                        author.UserId = (int)reader["UserId"];
+                    }
+                }
+                return View(author);
+            }
+            catch (Exception ex)
+            {
+                db.Connection.Close();
+                return View(author);
+                throw ex;
+            }
+
+
+        }
+        [HttpPost]
+        public ActionResult Delete(Authors author)
+        {
+            Database_Helpers db = new Database_Helpers();
+
+            if (db.delete("Authors", "where Id='" + author.Id + "'"))
+            {
+                return RedirectToAction("Index", "Authors");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            Authors author = new Authors();
+            string query = "Select * from Authors where id='" + id + "'";
+            Database_Helpers db = new Database_Helpers();
+            try
+            {
+                db.Connection.Open();
+                SqlCommand cmd = new SqlCommand(query, db.Connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        author = new Authors();
+                        author.Id = (int)reader["Id"];
+                        author.Name = reader["Name"].ToString();
+                        author.Desigination = reader["Desigination"].ToString();
+                        author.UserId = (int)reader["UserId"];
+                    }
+                }
+                return View(author);
+            }
+            catch (Exception ex)
+            {
+                db.Connection.Close();
+                return View(author);
+                throw ex;
+            }
+
+
+        }
 
     }
+
+
 }
