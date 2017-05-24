@@ -1,6 +1,10 @@
-﻿@model DigitalLibrary.Models.Users
+﻿@using DigitalLibrary.Models;
+
+@model DigitalLibrary.Models.Users
 @{
     ViewBag.Title = "Register";
+    Users _user = Session["User"] as Users;
+
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -29,10 +33,11 @@
         <label class="col-md-2 control-label">Password</label>
 
         <div class="col-md-10">
-            <input type="text" class="form-control" name="Password" />
+            <input type="password" class="form-control" name="Password" />
         </div>
     </div>
-    <div class="form-group">
+    <input type="hidden" name="Role" value="user" />
+    @*<div class="form-group">
         <label class="col-md-2 control-label">Role</label>
         <div class="col-md-10">
             <select name="Role" class="form-control">
@@ -40,7 +45,7 @@
                 <option value="user">User</option>
             </select>
         </div>
-    </div>
+    </div>*@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />

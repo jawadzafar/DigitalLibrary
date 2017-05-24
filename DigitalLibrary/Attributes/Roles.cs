@@ -27,8 +27,8 @@ namespace DigitalLibrary.Attributes
                 Users user = controller.Session["User"] as Users;
                 if (user == null || !this.type.Contains(user.Role))
                 {
-                    if (!this.type.Contains(user.Role))
-                    {
+                    //if (!this.type.Contains(user.Role))
+                    //{
                         controller.Session.Clear();
 
                     var route = new RouteValueDictionary {
@@ -37,7 +37,7 @@ namespace DigitalLibrary.Attributes
                     };
                     filterContext.Result = new RedirectToRouteResult(route);
                         //controller.RedirectToAction("Loing", "Account");
-                    }
+                    //}
                 }
             }
         }

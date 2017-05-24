@@ -12,5 +12,10 @@ namespace DigitalLibrary.Controllers
         {
             return View();
         }
+        public ActionResult Logout()
+        {
+            Session["User"] = null;
+            return RedirectToAction("Index","DigitalLibrary");
+        }
     }
 }
