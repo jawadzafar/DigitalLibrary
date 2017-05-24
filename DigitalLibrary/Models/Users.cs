@@ -30,6 +30,7 @@ namespace DigitalLibrary.Models
             }
         }
 
+        
         internal static Users Exist(Users user)
         {
             Database_Helpers db = new Database_Helpers();

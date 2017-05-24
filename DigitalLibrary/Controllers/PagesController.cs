@@ -1,4 +1,5 @@
-﻿using DigitalLibrary.Models;
+﻿using DigitalLibrary.Attributes;
+using DigitalLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -12,16 +13,20 @@ namespace DigitalLibrary.Controllers
     {
         // GET: Pages
         [HttpGet]
+        [Role(new string[] { "Admin", "Manager", "User" })]
         public ActionResult Index()
         {
             return View(Page.GetAll());
         }
         [HttpGet]
+        [Role("Admin")]
         public ActionResult Add()
         {
             return View(new Page());
         }
+
         [HttpPost]
+        [Role("Admin")]
         public ActionResult Add(Page page)
         {
             if (Page.Save(page))
@@ -34,6 +39,7 @@ namespace DigitalLibrary.Controllers
             }
         }
         [HttpGet]
+        [Role(new string[] { "Admin", "Manager"})]
         public ActionResult Edit(int Id)
         {
             Page page = new Page();
@@ -68,6 +74,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpPost]
+        [Role(new string[] { "Admin", "Manager" })]
         public ActionResult Edit(Page page)
         {
             Database_Helpers db = new Database_Helpers();
@@ -82,6 +89,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
+        [Role("Admin" )]
         public ActionResult Delete(int Id)
         {
             Page page = new Page();
@@ -115,6 +123,7 @@ namespace DigitalLibrary.Controllers
             }
         }
         [HttpPost]
+        [Role("Admin")]
         public ActionResult Delete(Page page)
         {
             Database_Helpers db = new Database_Helpers();
@@ -129,6 +138,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
+        [Role(new string[] { "Admin", "Manager" })]
         public ActionResult Details(int Id)
         {
             Page page = new Page();

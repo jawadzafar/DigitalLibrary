@@ -1,4 +1,5 @@
-﻿using DigitalLibrary.Models;
+﻿using DigitalLibrary.Attributes;
+using DigitalLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,17 +12,20 @@ namespace DigitalLibrary.Controllers
     public class AuthorsController : Controller
     {
         [HttpGet]
+        [Role(new string[] { "Admin", "Manager", "User" })]
         // GET: Authors
         public ActionResult Index()
         {
             return View(Authors.GetAll() );
         }
         [HttpGet]
+        [Role( "Admin")]
         public ActionResult Add()
         {
             return View(new Authors());
         }
         [HttpPost]
+        [Role("Admin")]
         public ActionResult Add(Authors author)
         {
             if (Authors.Save(author))
@@ -34,7 +38,8 @@ namespace DigitalLibrary.Controllers
             }
         }
         [HttpGet]
-        public ActionResult Edit(int id)
+    [Role(new string[] { "Admin", "Manager" })]
+    public ActionResult Edit(int id)
         {
             Authors author = new Authors();
             string query = "Select * from Authors where id='" + id + "'";

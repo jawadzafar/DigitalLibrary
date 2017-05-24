@@ -1,4 +1,5 @@
-﻿using DigitalLibrary.Models;
+﻿using DigitalLibrary.Attributes;
+using DigitalLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,17 +12,21 @@ namespace DigitalLibrary.Controllers
     public class PublishersController : Controller
     {
         [HttpGet]
+
         // GET: Publishers
+        [Role(new string[] { "Admin", "Manager", "User" })]
         public ActionResult Index()
         {
             return View(Publisher.GetAll());
         }
         [HttpGet]
+        [Role("Admin")]
         public ActionResult Add()
         {
             return View(new Publisher());
         }
         [HttpPost]
+        [Role("Admin")]
         public ActionResult Add(Publisher publisher)
         {
             if (Publisher.Save(publisher))
@@ -34,6 +39,7 @@ namespace DigitalLibrary.Controllers
             }
         }
         [HttpGet]
+        [Role(new string[] { "Admin", "Manager"})]
         public ActionResult Edit(int Id)
         {
             Publisher publisher = new Publisher();
@@ -66,6 +72,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpPost]
+        [Role(new string[] { "Admin", "Manager" })]
         public ActionResult Edit(Publisher publisher)
         {
             Database_Helpers db = new Database_Helpers();
@@ -80,6 +87,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
+        [Role("Admin")]
         public ActionResult Delete(int Id)
         {
             Publisher publisher = new Publisher();
@@ -112,6 +120,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpPost]
+        [Role("Admin")]
         public ActionResult Delete(Publisher publisher)
         {
             Database_Helpers db = new Database_Helpers();
@@ -126,6 +135,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
+        [Role(new string[] { "Admin", "Manager"})]
         public ActionResult Details(int Id)
         {
             Publisher publisher = new Publisher();

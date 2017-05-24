@@ -1,4 +1,5 @@
-﻿using DigitalLibrary.Models;
+﻿using DigitalLibrary.Attributes;
+using DigitalLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,17 +12,20 @@ namespace DigitalLibrary.Controllers
     public class AbwaabsController : Controller
     {
         [HttpGet]
+        [Role(new string[] { "Admin", "Manager", "User" })]
         // GET: Abwaabs
         public ActionResult Index()
         {
             return View(  Abwaab.GetAll() );
         }
         [HttpGet]
+        [Role("Admin")]
         public  ActionResult Add()
         {
             return View(new Abwaab());
         }
         [HttpPost]
+        [Role( "Admin")]
         public ActionResult Add(Abwaab abwaab)
         {
             if (Abwaab.Save(abwaab))
@@ -35,6 +39,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
+        [Role(new string[] { "Admin", "Manager"})]
         public ActionResult Edit(int id)
         {
             Abwaab abwaab = new Abwaab();
@@ -67,6 +72,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpPost]
+        [Role(new string[] { "Admin", "Manager" })]
         public ActionResult Edit(Abwaab abwaab)
         {
             Database_Helpers db = new Database_Helpers();
@@ -83,6 +89,7 @@ namespace DigitalLibrary.Controllers
 
 
         [HttpGet]
+        [Role("Admin")]
         public ActionResult Delete(int id)
         {
             Abwaab abwaab = new Abwaab();
@@ -115,7 +122,8 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delte(Abwaab abwaab)
+        [Role("Admin")]
+        public ActionResult Delete(Abwaab abwaab)
         {
             Database_Helpers db = new Database_Helpers();
 
@@ -130,6 +138,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
+        [Role(new string[] { "Admin", "Manager" })]
         public ActionResult Details(int id)
         {
             Abwaab abwaab = new Abwaab();
