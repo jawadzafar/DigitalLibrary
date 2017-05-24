@@ -147,8 +147,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AdminLTE.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap3-wysihtml5.min.css" />
+    <Content Include="Content\daterangepicker-bs3.css" />
+    <Content Include="Content\fullcalendar.css" />
+    <Content Include="Content\ionicons.min.css" />
+    <Content Include="Content\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Content\morris.css" />
     <Content Include="favicon.ico" />
     <Content Include="font-awesome\css\font-awesome.css" />
     <Content Include="font-awesome\css\font-awesome.min.css" />
@@ -167,6 +174,7 @@
     <Content Include="img\portfolio-3.jpg" />
     <Content Include="img\portfolio-4.jpg" />
     <Content Include="script.sql" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
@@ -201,14 +209,25 @@
     <Content Include="font-awesome\scss\_stacked.scss" />
     <Content Include="font-awesome\scss\_variables.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap3-wysihtml5.all.min.js" />
+    <Content Include="Scripts\dashboard.js" />
+    <Content Include="Scripts\daterangepicker.js" />
+    <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\icheck.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="Scripts\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jquery.knob.js" />
+    <Content Include="Scripts\jquery.sparkline.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\morris.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -259,10 +278,16 @@
     <Content Include="Views\Abwaabs\Delete.cshtml" />
     <Content Include="Views\Abwaabs\Details.cshtml" />
     <Content Include="Views\Search\IndexSearch.cshtml" />
+    <Content Include="Views\Shared\_AdminDashboardPartial.cshtml" />
+    <Content Include="Views\AdminDashboard\Add.cshtml" />
+    <Content Include="Views\AdminDashboard\Edit.cshtml" />
+    <Content Include="Views\AdminDashboard\ViewList.cshtml" />
+    <Content Include="Views\AdminDashboard\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Asserts\Book_Images\" />
+    <Folder Include="Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

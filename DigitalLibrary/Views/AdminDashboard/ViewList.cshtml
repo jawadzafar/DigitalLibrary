@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DigitalLibrary.Models.Users>
+
+@{
+    ViewBag.Title = "ViewList";
+    Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
+}
+<section class="content">
+    <h2>List</h2>
+
+    @*<p>
+            @Html.ActionLink("Create New", "Add")
+        </p>*@
+@using (Html.BeginForm(Html.BeginForm("ViewList", "AdminDashboard", FormMethod.Post)))
+{
+    <div class="panel panel-heading">Please Select The Type of User Role to View the List</div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Role</label>
+        <div class="col-md-5">
+            <select name="Role" class="form-control">
+                <option value="manager">Manager</option>
+                <option value="user">User</option>
+            </select>
+            
+        </div>
+        <div class="col-md-3">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+    
+    <br />
+    <br />
+    <br />
+  
+    <table class="table">
+        <tr>
+            <th>
+                User Name
+            </th>
+            <th>Email </th>
+            <th>Role</th>
+            <th>User Phone</th>
+            <th>Location</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.EmailAddress</td>
+                <td>@item.Role</td>
+                <th>@item.UserPhone</th>
+                <td>@item.Location</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+        </tr>
+        }
+
+    </table>
+    
+</section>

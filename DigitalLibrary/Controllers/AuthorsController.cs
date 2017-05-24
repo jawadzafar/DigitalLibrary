@@ -39,10 +39,10 @@ namespace DigitalLibrary.Controllers
         }
         [HttpGet]
     [Role(new string[] { "admin", "manager" })]
-    public ActionResult Edit(int id)
+    public ActionResult Edit(int Id)
         {
             Authors author = new Authors();
-            string query = "Select * from Authors where id='" + id + "'";
+            string query = "Select * from Authors where Id='" + Id + "'";
             Database_Helpers db = new Database_Helpers();
             try
             {
@@ -89,10 +89,10 @@ namespace DigitalLibrary.Controllers
 
         [HttpGet]
         [Role("admin")]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int Id)
         {
             Authors author = new Authors();
-            string query = "Select * from Authors where id='" + id + "'";
+            string query = "Select * from Authors where Id='" + Id + "'";
             Database_Helpers db = new Database_Helpers();
             try
             {
@@ -139,10 +139,10 @@ namespace DigitalLibrary.Controllers
 
         [HttpGet]
         [Role(new string[] { "admin", "manager" })]
-        public ActionResult Details(int id)
+        public ActionResult Details(int Id)
         {
             Authors author = new Authors();
-            string query = "Select * from Authors where id='" + id + "'";
+            string query = "Select * from Authors where Id='" + Id + "'";
             Database_Helpers db = new Database_Helpers();
             try
             {
