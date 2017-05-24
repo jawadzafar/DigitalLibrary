@@ -13,7 +13,7 @@ namespace DigitalLibrary.Controllers
     public class BooksController : Controller
     {
         [HttpGet]
-        [Role(new string[] { "Admin", "Manager","User" })]
+        [Role(new string[] { "admin", "manager","user" })]
         // GET: Book
         public ActionResult Index()
         {
@@ -21,13 +21,13 @@ namespace DigitalLibrary.Controllers
             return View(Book.GetAll());
         }
         [HttpGet]
-        [Role("Admin")]
+        [Role("admin")]
         public ActionResult Add()
        {
             
             return View(new Book());
         }
-        [Role("Admin")]
+        [Role("admin")]
         [HttpPost]
         public ActionResult Add(Book book, HttpPostedFileBase file)
         {
@@ -60,7 +60,7 @@ namespace DigitalLibrary.Controllers
             }
         }
 
-        [Role(new string[] { "Admin", "Manager" })]
+        [Role(new string[] { "admin", "manager" })]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -99,7 +99,7 @@ namespace DigitalLibrary.Controllers
 
          
         }
-        [Role(new string[] { "Admin", "Manager" })]
+        [Role(new string[] { "admin", "manager" })]
         [HttpPost]
         public ActionResult Edit(Book book, HttpPostedFileBase file)
         {
@@ -135,7 +135,7 @@ namespace DigitalLibrary.Controllers
         }
 
 
-        [Role("Admin")]
+        [Role("admin")]
         [HttpGet]
         public ActionResult Delete(int id)
         {
@@ -174,7 +174,7 @@ namespace DigitalLibrary.Controllers
 
 
         }
-        [Role("Admin")]
+        [Role("admin")]
         [HttpPost]
         public ActionResult Delete(Book book)
         {
@@ -190,7 +190,7 @@ namespace DigitalLibrary.Controllers
             
         }
         [HttpGet]
-        [Role(new string[] { "Admin", "Manager" })]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Details(int id)
         {
             Book books = new Book();

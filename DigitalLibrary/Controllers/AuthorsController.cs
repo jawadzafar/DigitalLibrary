@@ -12,20 +12,20 @@ namespace DigitalLibrary.Controllers
     public class AuthorsController : Controller
     {
         [HttpGet]
-        [Role(new string[] { "Admin", "Manager", "User" })]
+        [Role(new string[] { "admin", "manager", "user" })]
         // GET: Authors
         public ActionResult Index()
         {
             return View(Authors.GetAll() );
         }
         [HttpGet]
-        [Role( "Admin")]
+        [Role( "admin")]
         public ActionResult Add()
         {
             return View(new Authors());
         }
         [HttpPost]
-        [Role("Admin")]
+        [Role("admin")]
         public ActionResult Add(Authors author)
         {
             if (Authors.Save(author))
@@ -38,7 +38,7 @@ namespace DigitalLibrary.Controllers
             }
         }
         [HttpGet]
-    [Role(new string[] { "Admin", "Manager" })]
+    [Role(new string[] { "admin", "manager" })]
     public ActionResult Edit(int id)
         {
             Authors author = new Authors();
@@ -72,6 +72,7 @@ namespace DigitalLibrary.Controllers
 
         }
         [HttpPost]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Edit(Authors author)
         {
             Database_Helpers db = new Database_Helpers();
@@ -87,6 +88,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
+        [Role("admin")]
         public ActionResult Delete(int id)
         {
             Authors author = new Authors();
@@ -120,6 +122,7 @@ namespace DigitalLibrary.Controllers
 
         }
         [HttpPost]
+        [Role("admin")]
         public ActionResult Delete(Authors author)
         {
             Database_Helpers db = new Database_Helpers();
@@ -135,6 +138,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Details(int id)
         {
             Authors author = new Authors();

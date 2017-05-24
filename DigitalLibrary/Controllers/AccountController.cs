@@ -22,10 +22,12 @@ namespace DigitalLibrary.Controllers
             {
                 if(user.Role == "manager")
                 {
+                    Session["User"] = user;
                     return RedirectToAction("Index","ManagerDashboard");
                 }
                 else
                 {
+                    Session["User"] = user;
                     return RedirectToAction("Index", "UserDashboard");
                 }
             }

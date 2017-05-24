@@ -14,19 +14,19 @@ namespace DigitalLibrary.Controllers
         [HttpGet]
 
         // GET: Publishers
-        [Role(new string[] { "Admin", "Manager", "User" })]
+        [Role(new string[] { "admin", "manager", "user" })]
         public ActionResult Index()
         {
             return View(Publisher.GetAll());
         }
         [HttpGet]
-        [Role("Admin")]
+        [Role("admin")]
         public ActionResult Add()
         {
             return View(new Publisher());
         }
         [HttpPost]
-        [Role("Admin")]
+        [Role("admin")]
         public ActionResult Add(Publisher publisher)
         {
             if (Publisher.Save(publisher))
@@ -39,7 +39,7 @@ namespace DigitalLibrary.Controllers
             }
         }
         [HttpGet]
-        [Role(new string[] { "Admin", "Manager"})]
+        [Role(new string[] { "admin", "manager"})]
         public ActionResult Edit(int Id)
         {
             Publisher publisher = new Publisher();
@@ -72,7 +72,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpPost]
-        [Role(new string[] { "Admin", "Manager" })]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Edit(Publisher publisher)
         {
             Database_Helpers db = new Database_Helpers();
@@ -87,7 +87,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
-        [Role("Admin")]
+        [Role("admin")]
         public ActionResult Delete(int Id)
         {
             Publisher publisher = new Publisher();
@@ -120,7 +120,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpPost]
-        [Role("Admin")]
+        [Role("admin")]
         public ActionResult Delete(Publisher publisher)
         {
             Database_Helpers db = new Database_Helpers();
@@ -135,7 +135,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
-        [Role(new string[] { "Admin", "Manager"})]
+        [Role(new string[] { "admin", "manager"})]
         public ActionResult Details(int Id)
         {
             Publisher publisher = new Publisher();

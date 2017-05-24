@@ -11,7 +11,7 @@ namespace DigitalLibrary.Controllers
     {
         // GET: Search
         [HttpGet]
-        [Role(new string[] { "Admin", "Manager", "User" })]
+        [Role(new string[] { "admin", "manager", "user" })]
         public ActionResult IndexSearch()
         {
 
@@ -19,7 +19,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpPost]
-        [Role(new string[] { "Admin", "Manager", "User" })]
+        [Role(new string[] { "admin", "manager", "user" })]
         public ActionResult IndexSearch(FormCollection form)
         {
             var word = form["SearchText"].ToString();
