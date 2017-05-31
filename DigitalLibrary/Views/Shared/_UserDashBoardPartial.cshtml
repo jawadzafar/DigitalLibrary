@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Admin | Dashboard</title>
+    <title>User | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -29,13 +29,14 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 </head>
 <body class="skin-black">
     <!-- header logo: style can be found in header.less -->
     <header class="header">
-        <a href="~/AdminDashboard/Index" class="logo">
+        <a href="~/UserDashBoard/Index" class="logo">
             <!-- Add the class icon to your logo image or logo icon to add the margining -->
-            Admin
+            User
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -78,7 +79,7 @@
                                                 <img src="img/avatar2.png" class="img-circle" alt="user image" />
                                             </div>
                                             <h4>
-                                                AdminLTE Design Team
+                                                Manager Design Team
                                                 <small><i class="fa fa-clock-o"></i> 2 hours</small>
                                             </h4>
                                             <p>Why not buy a new awesome theme?</p>
@@ -249,7 +250,7 @@
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header bg-light-blue">
-                                <img src="~/img/avatar.png" class="img-circle" alt="User Image" />
+                                <img src="~/img/avatar04.png" class="img-circle" alt="User Image" />
                                 <p>
                                     Islamic-Uloom - Web Developer
                                     <small>Member since Nov. 2017</small>
@@ -290,7 +291,8 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="~/img/avatar.png" class="img-circle" alt="User Image" />
+                        
+                        <img src="~/img/avatar04.png" class="img-circle" alt="User Image" />
                     </div>
                     <div class="pull-left info">
                         <p>Hello, Islamic-Uloom</p>
@@ -310,92 +312,31 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="active">
-                        <a href="~/AdminDashboard/Index">
+                        <a href="~/UserDashBoard/Index">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="~/AdminDashboard/Index">
-                            <i class="fa fa-user"></i> <span>Admin</span> <small class="badge pull-right bg-green">Islamic Uloom</small>
+                        <a href="~/UserDashBoard/Index">
+                            <i class="fa fa-user"></i> <span>User</span> <small class="badge pull-right bg-green">Islamic Uloom</small>
                         </a>
                     </li>
 
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-laptop"></i>
-                            <span>Manager Management</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="~/AdminDashboard/Add"><i class="fa fa-angle-double-right"></i> Add Manager</a></li>
-                            <li><a href="~/AdminDashboard/ViewList"><i class="fa fa-angle-double-right"></i> View All</a></li>
-                            
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-users"></i> <span>User Management</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="~/AdminDashboard/Add"><i class="fa fa-angle-double-right"></i> Add User</a></li>
-                            <li><a href="~/AdminDashboard/ViewList"><i class="fa fa-angle-double-right"></i> View All</a></li>
 
-                        </ul>
-                    </li>
+
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-laptop"></i> <span>Books Management</span>
+                            <i class="fa fa-laptop"></i> <span>Books Table</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="~/Books/Add"><i class="fa fa-angle-double-right"></i> Add Books</a></li>
-                            <li><a href="~/AdminDashboard/AssignBook"><i class="fa fa-angle-double-right"></i> Assign Books</a></li>
-                            <li><a href="~/AdminDashboard/ViewAssignBook"><i class="fa fa-angle-double-right"></i> View Assign Books</a></li>
                             <li><a href="~/Books/Index"><i class="fa fa-angle-double-right"></i> View All Books</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-laptop"></i> <span>Abwaabs Management</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="~/Abwaabs/Add"><i class="fa fa-angle-double-right"></i> Add Baab</a></li>
-                            <li><a href="~/Abwaabs/Index"><i class="fa fa-angle-double-right"></i> View All</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-laptop"></i> <span>Pages Management</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="~/Pages/Add"><i class="fa fa-angle-double-right"></i> Add Page</a></li>
-                            <li><a href="~/Pages/Index"><i class="fa fa-angle-double-right"></i> View All</a></li>
+                            <li><a href="~/Abwaabs/Index"><i class="fa fa-angle-double-right"></i> View All Abaabs</a></li>
+                            <li><a href="~/Pages/Index"><i class="fa fa-angle-double-right"></i> View All Pages</a></li>
                         </ul>
                     </li>
 
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-laptop"></i> <span>Authors Management</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="~/Authors/Add"><i class="fa fa-angle-double-right"></i> Add Author</a></li>
-                            <li><a href="~/Authors/Index"><i class="fa fa-angle-double-right"></i> View All</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-laptop"></i> <span>Piblishers Management</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="~/Publishers/Add"><i class="fa fa-angle-double-right"></i> Add Publisher</a></li>
-                            <li><a href="~/Publishers/Index"><i class="fa fa-angle-double-right"></i> View All</a></li>
-                        </ul>
-                    </li>
+
 
 
                 </ul>
@@ -403,14 +344,10 @@
             <!-- /.sidebar -->
         </aside>
         <!-- Right side column. Contains the navbar and content of the page -->
-        <aside class="right-side">
-            <!-- Content Header (Page header) -->
             @RenderBody()
-        </aside><!-- /.right-side -->
+        <!-- /.right-side -->
     </div><!-- ./wrapper -->
     <!-- add new calendar event modal -->
-    <!-- jQuery 2.0.2 -->
-    
     <!-- jQuery UI 1.10.3 -->
     <script src="~/Scripts/jquery-ui-1.10.3.min.js"></script>
     <!-- Bootstrap -->
@@ -435,6 +372,7 @@
     <script src="~/Scripts/icheck.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/Scripts/app.js"></script>
+    <script src="js/AdminLTE/app.js" type="text/javascript"></script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/Scripts/dashboard.js"></script>

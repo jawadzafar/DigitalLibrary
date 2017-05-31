@@ -20,13 +20,13 @@ namespace DigitalLibrary.Controllers
             return View(  Abwaab.GetAll() );
         }
         [HttpGet]
-        [Role("admin")]
+        [Role(new string[] { "admin", "manager" })]
         public  ActionResult Add()
         {
             return View(new Abwaab());
         }
         [HttpPost]
-        [Role( "admin")]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Add(Abwaab abwaab)
         {
             if (Abwaab.Save(abwaab))

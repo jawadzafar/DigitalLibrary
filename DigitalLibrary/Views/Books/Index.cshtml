@@ -1,28 +1,42 @@
 ﻿@model IEnumerable<DigitalLibrary.Models.Book>
-
+@using DigitalLibrary.Models
 @{
-//string CurrentName = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"]);
-//string CurrentName = Convert.ToString(HttpContext.Current.User.IsInRole("admin"));
-//dynamic Layout;
-    if(HttpContext.Current.User.IsInRole("admin"))
+    Users user = Session["User"] as Users;
+    if (user.Role == "admin")
     {
-        var role = Roles.GetRolesForUser();
-        if (role.Any(r => r.Contains("admin")))
-        {
-            Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
-        }
-        else if (role.Any(r => r.Contains("admin")))
-        {
-            Layout = "~/Views/Shared/_ManagerDashboardPartial.cshtml";
-        }
-        else
-        {
-            Layout = "~/Views/Shared/_Layout.cshtml";
-        }
+        Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
+    }
+    else if (user.Role == "manager")
+    {
+        Layout = "~/Views/Shared/_ManagerDashoardPartial.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_UserDashBoardPartial.cshtml";
+    }
+
+    //string CurrentName = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"]);
+    //string CurrentName = Convert.ToString(HttpContext.Current.User.IsInRole("admin"));
+    //dynamic Layout;
+    //if(HttpContext.Current.User.IsInRole("admin"))
+    //{
+    //    var role = Roles.GetRolesForUser();
+    //    if (role.Any(r => r.Contains("admin")))
+    //    {
+    //        Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
+    //    }
+    //    else if (role.Any(r => r.Contains("admin")))
+    //    {
+    //        Layout = "~/Views/Shared/_ManagerDashboardPartial.cshtml";
+    //    }
+    //    else
+    //    {
+    //        Layout = "~/Views/Shared/_Layout.cshtml";
+    //    }
 
     }
     
-    //switch (CurrentName)
+    @*//switch (CurrentName)
     //{
     //    case "Admin":
 
@@ -37,7 +51,7 @@
 
 
 
-    //}
+    //}*@
 }
 <section class="content">
     <h2>Book Index</h2>

@@ -1,8 +1,21 @@
 ﻿@model  DigitalLibrary.Models.Abwaab
 
+
+@using DigitalLibrary.Models
 @{
-    ViewBag.Title = "Update";
-    Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
+    Users user = Session["User"] as Users;
+    if (user.Role == "admin")
+    {
+        Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
+    }
+    else if (user.Role == "manager")
+    {
+        Layout = "~/Views/Shared/_ManagerDashoardPartial.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 <section class="content">
 <h2>Update</h2>

@@ -34,7 +34,7 @@
 <body class="skin-black">
     <!-- header logo: style can be found in header.less -->
     <header class="header">
-        <a href="index.html" class="logo">
+        <a href="~/ManagerDashboard/Index" class="logo">
             <!-- Add the class icon to your logo image or logo icon to add the margining -->
             Manager
         </a>
@@ -250,14 +250,14 @@
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header bg-light-blue">
-                                <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                                <img src="~/img/avatar5.png" class="img-circle" alt="User Image" />
                                 <p>
                                     Islamic-Uloom - Web Developer
                                     <small>Member since Nov. 2017</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
-                            <li class="user-body">
+                            @*<li class="user-body">
                                 <div class="col-xs-4 text-center">
                                     <a href="#">Followers</a>
                                 </div>
@@ -267,14 +267,14 @@
                                 <div class="col-xs-4 text-center">
                                     <a href="#">Friends</a>
                                 </div>
-                            </li>
+                            </li>*@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="~/DigitalLibrary/Logout" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -291,7 +291,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                        <img src="~/img/avatar5.png" class="img-circle" alt="User Image" />
                     </div>
                     <div class="pull-left info">
                         <p>Hello, Islamic-Uloom</p>
@@ -301,9 +301,9 @@
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
                     <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search..." />
+                        @*<input type="text" name="q" class="form-control" placeholder="Search..." />*@
                         <span class="input-group-btn">
-                            <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            <a href="~/Search/IndexSearch" ><i class="fa fa-search"></i> </a>
                         </span>
                     </div>
                 </form>
@@ -311,12 +311,12 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="active">
-                        <a href=""~/ManagerDashboard/Index">
+                        <a href="~/ManagerDashboard/Index">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="~/ManagerDashboard/Index">
                             <i class="fa fa-user"></i> <span>Manager</span> <small class="badge pull-right bg-green">Islamic Uloom</small>
                         </a>
                     </li>

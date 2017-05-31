@@ -1,9 +1,22 @@
 ﻿@model  DigitalLibrary.Models.Authors
 
-@{
-    ViewBag.Title = "Update";
-}
 
+@using DigitalLibrary.Models
+@{
+    Users user = Session["User"] as Users;
+    if (user.Role == "admin")
+    {
+        Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
+    }
+    else if (user.Role == "manager")
+    {
+        Layout = "~/Views/Shared/_ManagerDashoardPartial.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
 <h2>Update</h2>
 
 

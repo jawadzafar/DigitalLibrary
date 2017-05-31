@@ -1,23 +1,19 @@
 ﻿@model  DigitalLibrary.Models.Book
 
+@using DigitalLibrary.Models
 @{
-    string CurrentName = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"]);
-    dynamic Layout;
-    switch (CurrentName)
+    Users user = Session["User"] as Users;
+    if (user.Role == "admin")
     {
-        case "Admin":
-            Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
-            break;
-        case "Manager":
-            Layout = "~/Views/Shared/_ManagerDashboardPartial.cshtml";
-            break;
-
-        default:
-            Layout = "~/Views/Shared/_Layout.cshtml";
-            break;
-
-
-
+        Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
+    }
+    else if (user.Role == "manager")
+    {
+        Layout = "~/Views/Shared/_ManagerDashoardPartial.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
     }
 }
 

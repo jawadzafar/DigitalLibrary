@@ -22,13 +22,13 @@ namespace DigitalLibrary.Controllers
             return View(Book.GetAll());
         }
         [HttpGet]
-        [Role("admin")]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Add()
        {
             
             return View(new Book());
         }
-        [Role("admin")]
+        [Role(new string[] { "admin", "manager" })]
         [HttpPost]
         public ActionResult Add(Book book, HttpPostedFileBase file)
         {

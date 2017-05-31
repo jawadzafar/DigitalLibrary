@@ -21,13 +21,13 @@ namespace DigitalLibrary.Controllers
             return View(Publisher.GetAll());
         }
         [HttpGet]
-        [Role("admin")]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Add()
         {
             return View(new Publisher());
         }
         [HttpPost]
-        [Role("admin")]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Add(Publisher publisher)
         {
             if (Publisher.Save(publisher))

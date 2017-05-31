@@ -20,13 +20,13 @@ namespace DigitalLibrary.Controllers
             return View(Authors.GetAll() );
         }
         [HttpGet]
-        [Role( "admin")]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Add()
         {
             return View(new Authors());
         }
         [HttpPost]
-       [Role("admin")]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Add(Authors author)
         {
             if (Authors.Save(author))

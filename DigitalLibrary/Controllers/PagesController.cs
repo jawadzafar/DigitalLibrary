@@ -21,14 +21,14 @@ namespace DigitalLibrary.Controllers
             return View(Page.GetAll());
         }
         [HttpGet]
-        [Role("admin")]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Add()
         {
             return View(new Page());
         }
 
         [HttpPost]
-        [Role("admin")]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Add(Page page)
         {
             if (Page.Save(page))

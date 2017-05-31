@@ -172,7 +172,7 @@ namespace DigitalLibrary.Controllers
         [Role("manager")]
         public ActionResult ViewAssignBook()
         {
-            var list = Database_Helpers.QueryList("select Books.Name as BookName, Books.NoOfAbwaabs, Books.EditionNumber, Users.Name as ManagerName from books join Users on Users.Id = Books.UserId ");
+            var list = Database_Helpers.QueryList("select Books.Name as BookName,Books.Id as BookId , Books.NoOfAbwaabs, Books.EditionNumber, Users.Name as ManagerName from books join Users on Users.Id = Books.UserId ");
             return View(list);
         }
 
