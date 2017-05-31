@@ -23,7 +23,7 @@ namespace DigitalLibrary.Controllers
         public ActionResult IndexSearch(FormCollection form)
         {
             var word = form["SearchText"].ToString();
-            var list = Database_Helpers.QueryList("SELECT Abwaabs.Name as BaabName, Pages.PageNumberDisplay, Books.Name as BookName, Pages.PageDetails, Pages.PageTag FROM Pages Join Books ON Pages.BookId = Books.Id Join Abwaabs ON Pages.BaabId = Abwaabs.Id Where Pages.PageDetails Like '%"+word+"%'");
+            var list = Database_Helpers.QueryList("SELECT Abwaabs.Name as BaabName, Pages.PageNumberDisplay, Books.Id as BookId, Books.Name as BookName, Pages.PageDetails, Pages.PageTag FROM Pages Join Books ON Pages.BookId = Books.Id Join Abwaabs ON Pages.BaabId = Abwaabs.Id Where Pages.PageDetails Like '%"+word+"%'");
             return View(list);
         }
     }

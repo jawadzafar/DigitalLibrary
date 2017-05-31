@@ -1,0 +1,99 @@
+﻿@model DigitalLibrary.ViewModel.BookAsignmentViewModel
+@{
+    ViewBag.Title = "AssignBook";
+    Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
+}
+
+<section class="content">
+@using (Html.BeginForm("AssignBook", "AdminDashboard", FormMethod.Post))
+{
+    <h2>AssignBook</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Book Name
+            </th>
+            <th>
+                Author Name
+            </th>
+            <th>
+                Publisher Name
+            </th>
+            <th>
+                Edition Number
+            </th>
+            <th>
+                Publishing Year
+            </th>
+            <th> Manager</th>
+            <th>Action </th>
+
+        </tr>
+
+        @foreach (var item in Model.BookList)
+        {
+            <tr name="Bklist">
+                <td name="Name">
+                    @item.Name
+                </td>
+                <td Name="AuthorId">
+                    @item.AuthorId
+                </td>
+                <td name="PublisherId">
+                    @item.PublisherId
+                </td>
+                <td name="EditionNumber">
+                    @item.EditionNumber
+                </td>
+
+                <td name="PublishingYear">
+                    @item.PublishingYear
+                </td>
+                <td>
+                    <select name="ManagersList" class="form-control manager-select">
+                        @foreach (var list in Model.ManagersList)
+                        {
+                            <option value="@list.Id" name="Name">@list.Name</option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <input type="button" data-BookId="@item.Id" class="btn btn-default assign-button" value="Assign" />
+                </td>
+            </tr>
+            }
+
+    </table>
+}
+</section>
+
+<script>
+    $(".assign-button").click(function () {
+
+
+        var element = $(this);
+        var BookId = $(this).attr("data-BookId");
+        var UserId = $(this).parent().parent().find("select").val();
+        var $tr = $(this).closest('tr');
+        $.ajax({
+            data : {BookId: BookId, UserId: UserId},
+            url: "@Url.Action("AssignBook","AdminDashboard")",
+            type: "POST",
+            success: function (resp)
+            {
+
+                if (resp == "True") {
+                    $(this).parent().parent().remove("Bklist");
+                    $(element).removeClass("btn-default");
+                    $(element).addClass("btn-success");
+                    $tr.find('td').remove();    
+                }
+                else {
+
+                }
+                
+            }
+
+        });
+    });
+</script>

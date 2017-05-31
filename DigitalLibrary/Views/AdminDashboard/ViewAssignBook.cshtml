@@ -1,0 +1,44 @@
+﻿@model  List<Dictionary<string, string>>
+
+@{
+    ViewBag.Title = "ViewAssignBook";
+    Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
+}
+
+<section class="form-control">
+    <table class="table table-responsive">
+        <tr>
+            <th>Book Name</th>
+            <th>No of Abwaabs</th>
+            <th>Eidition No</th>
+            <th>Manager Name</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item["BookName"]
+                </td>
+                <td>
+                    @item["NoOfAbwaabs"]
+                </td>
+                <td>
+                    @item["EditionNumber"]
+                </td>
+                <td>
+                    @item["ManagerName"]
+                </td>
+            </tr>
+        }
+        @*<tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>*@
+
+
+    </table>
+</section>

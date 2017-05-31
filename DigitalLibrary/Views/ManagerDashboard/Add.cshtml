@@ -1,0 +1,66 @@
+﻿
+@using DigitalLibrary.Models;
+@{
+    Layout = "~/Views/Shared/_ManagerDashoardPartial.cshtml";
+}
+<section class="content">
+    @using (Html.BeginForm("Add", "ManagerDashboard", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Create a new account.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="col-md-2 control-label">User Name</label>
+
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="Name" />
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label class="col-md-2 control-label">EmailAddress</label>
+
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="EmailAddress" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Password</label>
+
+            <div class="col-md-5">
+                <input type="password" class="form-control" name="Password" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">User Phone</label>
+
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="UserPhone" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Location</label>
+
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="Location" />
+            </div>
+        </div>
+
+        @*<input type="hidden" name="Role" value="user" />*@
+        <div class="form-group">
+            <label class="col-md-2 control-label">Role</label>
+            <div class="col-md-5 ">
+                <select name="Role" class="form-control">
+                    @*<option value="manager">Manager</option>*@
+                    <option value="user">User</option>
+                </select>
+            </div>
+        </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Register" />
+                </div>
+            </div>
+    }
+</section>

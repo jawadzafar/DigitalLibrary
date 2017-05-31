@@ -2,8 +2,10 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
 }
 
+<section class="form-control">
 <h2>Create</h2>
 
 
@@ -12,8 +14,8 @@
 
     @Html.AntiForgeryToken()
     <div class="row">
-        <div class="form-horizontal">
-            <h4>Book</h4>
+        <div class="form-horizontal" style="width:600px; margin:0 auto;">
+            <h4>Aurhors</h4>
             <hr />
             <div class="form-group">
                 <label name="" class="col-md-2 form-control">Name</label>
@@ -45,3 +47,4 @@
 <div>
 
 </div>
+</section>

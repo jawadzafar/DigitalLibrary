@@ -12,6 +12,7 @@ namespace DigitalLibrary.Controllers
     public class AuthorsController : Controller
     {
         [HttpGet]
+        
         [Role(new string[] { "admin", "manager", "user" })]
         // GET: Authors
         public ActionResult Index()
@@ -25,7 +26,7 @@ namespace DigitalLibrary.Controllers
             return View(new Authors());
         }
         [HttpPost]
-        [Role("admin")]
+       [Role("admin")]
         public ActionResult Add(Authors author)
         {
             if (Authors.Save(author))

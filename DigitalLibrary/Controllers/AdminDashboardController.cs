@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DigitalLibrary.ViewModel;
+using DigitalLibrary.Attributes;
 
 namespace DigitalLibrary.Controllers
 {
@@ -12,16 +14,19 @@ namespace DigitalLibrary.Controllers
     {
         // GET: AdminDashboard
         [HttpGet]
+        [Role("admin")]
         public ActionResult Index()
         {
-            return View();
+            return View(new AdminDashboardViewModel());
         }
         [HttpGet]
+        [Role("admin")]
         public ActionResult Add()
         {
             return View(new Users());
         }
         [HttpPost]
+        [Role("admin")]
         public ActionResult Add(Users user)
         {
             if (Users.Save(user))
@@ -34,11 +39,13 @@ namespace DigitalLibrary.Controllers
             }
         }
         [HttpGet]
+        [Role("admin")]
         public ActionResult ViewList()
         {
             return View(Users.GetAll());
         }
         [HttpPost]
+        [Role("admin")]
         public ActionResult ViewList(FormCollection form)
         {
             string role = form["Role"].ToString();
@@ -47,6 +54,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
+        [Role("admin")]
         public ActionResult Edit(int Id)
         {
             Users user = new Users();
@@ -81,6 +89,7 @@ namespace DigitalLibrary.Controllers
 
         }
         [HttpPost]
+        [Role("admin")]
         public ActionResult Edit(Users user)
         {
             Database_Helpers db = new Database_Helpers();
@@ -95,6 +104,7 @@ namespace DigitalLibrary.Controllers
             }
         }
         [HttpGet]
+        [Role("admin")]
         public ActionResult Delete(int Id)
         {
             Users user = new Users();
@@ -128,6 +138,7 @@ namespace DigitalLibrary.Controllers
             }
         }
         [HttpPost]
+        [Role("admin")]
         public ActionResult Delete(Users user)
         {
             Database_Helpers db = new Database_Helpers();
@@ -142,6 +153,28 @@ namespace DigitalLibrary.Controllers
             }
         }
 
+        [HttpGet]
+        [Role("admin")]
+        public ActionResult AssignBook()
+        {
+            return View(new BookAsignmentViewModel());
+        }
+        [HttpPost]
+        [Role("admin")]
+        public ActionResult AssignBook(string UserId, string BookId)
+        {
+           
+             BookAsignmentViewModel.Save(BookId, UserId);
+            return View();
+                        
+        }
+        [HttpGet]
+        [Role("admin")]
+        public ActionResult ViewAssignBook()
+        {
+            var list = Database_Helpers.QueryList("select Books.Name as BookName, Books.NoOfAbwaabs, Books.EditionNumber, Users.Name as ManagerName from books join Users on Users.Id = Books.UserId ");
+            return View(list);
+        }
 
     }
 }

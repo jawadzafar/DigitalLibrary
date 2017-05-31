@@ -13,6 +13,7 @@ namespace DigitalLibrary.Controllers
     public class BooksController : Controller
     {
         [HttpGet]
+        
         [Role(new string[] { "admin", "manager","user" })]
         // GET: Book
         public ActionResult Index()

@@ -2,28 +2,37 @@
 
 @{
     ViewBag.Title = "Index Search";
+    //Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
 }
-
-<h2>Search</h2>
 
 <h2>Words Search</h2>
+<br />
+
 @using (Html.BeginForm(Html.BeginForm("IndexSearch", "Search", FormMethod.Post)))
             {
-    <div class="panel panel-heading">Word Search</div>
-                <div class="panel-body">
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="form-horizontal">
-                                @Html.TextBox("SearchText", null, htmlAttributes: new { @class = "form-control" })
-                                <input type="submit" value="Search" name="submit" class="btn btn-default" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Word Search</label>
+        <div class="col-md-5">
+            <input type="text" name="SearchText" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            <input type="submit" class="btn btn-default" value="Search" />
+        </div>
+    </div>
 }
+<br />
+<br />
 
 @if (IsPost)
             {
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
     <table class="table table-responsive">
         <tr>
             <th>Book Name</th>
@@ -37,7 +46,8 @@
         {
             <tr>
                 <td>
-                    @item["BookName"]
+                    
+                    <a href="~/Books/Details/@item["BookId"]">@item["BookName"]</a>
                 </td>
                 <td>
                     @item["BaabName"]

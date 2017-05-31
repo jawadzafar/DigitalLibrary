@@ -13,9 +13,60 @@ namespace DigitalLibrary.Models
         public string Name { get; set; }
         public string Password { get; set; }
         public string EmailAddress { get; set; }
+
+        internal static List<Users> GetAllManagers()
+        {
+
+            Users user = new Users();
+            List<Users> UserList = new List<Users>();
+
+            string query = "  Select * from Users where Role='manager'";
+
+            Database_Helpers db = new Database_Helpers();
+            try
+            {
+                db.Connection.Open();
+                SqlCommand cmd = new SqlCommand(query, db.Connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        user = new Users();
+                        user.Id = (int)reader["Id"];
+                        user.Name = reader["Name"].ToString();
+                        user.EmailAddress = reader["EmailAddress"].ToString();
+                        user.Location = reader["Location"].ToString();
+                        user.Role = reader["Role"].ToString();
+                        user.UserPhone = reader["UserPhone"].ToString();
+                        UserList.Add(user);
+                    }
+                }
+                return UserList;
+            }
+            catch (Exception ex)
+            {
+                db.Connection.Close();
+                return UserList;
+                throw ex;
+            }
+        }
+
         public string Role { get; set; }
         public string UserPhone { get; set; }
         public string Location { get; set; }
+
+        internal static int UsersAccountCount()
+        {
+            Database_Helpers db = new Database_Helpers();
+            return db.get_scalar("select COUNT(*) from users where Role = 'user'");
+        }
+
+        internal static int ManagersCount()
+        {
+            Database_Helpers db = new Database_Helpers();
+            return db.get_scalar("select COUNT(*) from users where Role = 'manager'");
+        }
 
         internal static bool Save(Users user)
         {

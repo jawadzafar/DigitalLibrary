@@ -12,20 +12,21 @@ namespace DigitalLibrary.Controllers
     public class AbwaabsController : Controller
     {
         [HttpGet]
-        [Role(new string[] { "Admin", "Manager", "User" })]
+
+        [Role(new string[] { "admin", "manager", "user" })]
         // GET: Abwaabs
         public ActionResult Index()
         {
             return View(  Abwaab.GetAll() );
         }
         [HttpGet]
-        [Role("Admin")]
+        [Role("admin")]
         public  ActionResult Add()
         {
             return View(new Abwaab());
         }
         [HttpPost]
-        [Role( "Admin")]
+        [Role( "admin")]
         public ActionResult Add(Abwaab abwaab)
         {
             if (Abwaab.Save(abwaab))
@@ -39,7 +40,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
-        [Role(new string[] { "Admin", "Manager"})]
+       [Role(new string[] { "admin", "manager"})]
         public ActionResult Edit(int id)
         {
             Abwaab abwaab = new Abwaab();
@@ -72,7 +73,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpPost]
-        [Role(new string[] { "Admin", "Manager" })]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Edit(Abwaab abwaab)
         {
             Database_Helpers db = new Database_Helpers();
@@ -89,7 +90,7 @@ namespace DigitalLibrary.Controllers
 
 
         [HttpGet]
-        [Role("Admin")]
+        [Role("admin")]
         public ActionResult Delete(int id)
         {
             Abwaab abwaab = new Abwaab();
@@ -122,7 +123,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpPost]
-        [Role("Admin")]
+        [Role("admin")]
         public ActionResult Delete(Abwaab abwaab)
         {
             Database_Helpers db = new Database_Helpers();
@@ -138,7 +139,7 @@ namespace DigitalLibrary.Controllers
         }
 
         [HttpGet]
-        [Role(new string[] { "Admin", "Manager" })]
+        [Role(new string[] { "admin", "manager" })]
         public ActionResult Details(int id)
         {
             Abwaab abwaab = new Abwaab();

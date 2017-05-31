@@ -11,8 +11,10 @@ namespace DigitalLibrary.Controllers
 {
     public class PagesController : Controller
     {
+        
         // GET: Pages
         [HttpGet]
+        
         [Role(new string[] { "admin", "manager", "user" })]
         public ActionResult Index()
         {

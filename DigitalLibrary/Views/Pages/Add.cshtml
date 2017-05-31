@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminDashboardPartial.cshtml";
 }
 
 <h2>Create</h2>
@@ -12,8 +13,8 @@
 
     @Html.AntiForgeryToken()
     <div class="row">
-        <div class="form-horizontal">
-            <h4>Book</h4>
+        <div class="form-horizontal" style="width:600px; margin:0 auto;">
+            <h4>Page</h4>
             <hr />
             <div class="form-group">
                 <label name="" class="col-md-2 form-control">Baab Name</label>
@@ -37,12 +38,12 @@
                 <label class="col-md-2 form-control">Page Number</label>
                 <div class="col-md-10">
                     <input name="PageNumberDisplay" type="text" class="form-control" />
-                </div>
+                </div><hr />
             </div>
             <div class="form-group">
                 <label class="col-md-2 form-control">Page Details</label>
-                <div class="col-md-10">
-                    <input name="PageDetails" type="text" class="form-control" />
+                <div class="col-md-6 col-xs-12">
+                    <textarea id="TextArea1" name="PageDetails" maxlength="900" rows="10" cols="90" class="form-control"></textarea>
                 </div>
             </div>
             <div class="form-group">
