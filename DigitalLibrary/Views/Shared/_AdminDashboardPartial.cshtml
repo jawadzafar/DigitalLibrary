@@ -49,7 +49,7 @@
             <div class="navbar-right">
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
+                    @*<li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope"></i>
                             <span class="label label-success">4</span>
@@ -124,9 +124,9 @@
                             </li>
                             <li class="footer"><a href="#">See All Messages</a></li>
                         </ul>
-                    </li>
+                    </li>*@
                     <!-- Notifications: style can be found in dropdown.less -->
-                    <li class="dropdown notifications-menu">
+                    @*<li class="dropdown notifications-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-warning"></i>
                             <span class="label label-warning">10</span>
@@ -134,7 +134,7 @@
                         <ul class="dropdown-menu">
                             <li class="header">You have 10 notifications</li>
                             <li>
-                                <!-- inner menu: contains the actual data -->
+                                 inner menu: contains the actual data 
                                 <ul class="menu">
                                     <li>
                                         <a href="#">
@@ -165,9 +165,9 @@
                             </li>
                             <li class="footer"><a href="#">View all</a></li>
                         </ul>
-                    </li>
+                    </li>*@
                     <!-- Tasks: style can be found in dropdown.less -->
-                    <li class="dropdown tasks-menu">
+                    @*<li class="dropdown tasks-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-tasks"></i>
                             <span class="label label-danger">9</span>
@@ -239,7 +239,7 @@
                                 <a href="#">View all tasks</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>*@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -269,9 +269,9 @@
                             </li>*@
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
+                                @*<div class="pull-left">
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
+                                </div>*@
                                 <div class="pull-right">
                                     <a href="~/DigitalLibrary/Logout" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
@@ -388,7 +388,7 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-laptop"></i> <span>Piblishers Management</span>
+                            <i class="fa fa-laptop"></i> <span>Publishers Management</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
@@ -404,8 +404,10 @@
         </aside>
         <!-- Right side column. Contains the navbar and content of the page -->
         <aside class="right-side">
+        <section class="content">
             <!-- Content Header (Page header) -->
             @RenderBody()
+            </section>
         </aside><!-- /.right-side -->
     </div><!-- ./wrapper -->
     <!-- add new calendar event modal -->

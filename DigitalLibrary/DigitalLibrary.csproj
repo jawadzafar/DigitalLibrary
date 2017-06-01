@@ -148,8 +148,21 @@
     <Compile Include="ViewModel\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModel\BookAsignmentViewModel.cs" />
     <Compile Include="ViewModel\ManagerDashboardViewModel.cs" />
+    <Compile Include="ViewModel\UserDashboardViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asserts\RegisterLayoutsFiles\css\bootstrap.min.css" />
+    <Content Include="Asserts\RegisterLayoutsFiles\css\font-awesome.css" />
+    <Content Include="Asserts\RegisterLayoutsFiles\css\font-awesome.min.css" />
+    <Content Include="Asserts\RegisterLayoutsFiles\css\style.css" />
+    <Content Include="Asserts\RegisterLayoutsFiles\img\34.jpg" />
+    <Content Include="Asserts\RegisterLayoutsFiles\img\44.jpg" />
+    <Content Include="Asserts\RegisterLayoutsFiles\img\clk2.png" />
+    <Content Include="Asserts\RegisterLayoutsFiles\img\colorful.jpg" />
+    <Content Include="Asserts\RegisterLayoutsFiles\img\images.jpg" />
+    <Content Include="Asserts\RegisterLayoutsFiles\js\bootstrap.min.js" />
+    <Content Include="Asserts\RegisterLayoutsFiles\js\jquery.backstretch.js" />
+    <Content Include="Asserts\RegisterLayoutsFiles\js\jquery.js" />
     <Content Include="Content\AdminLTE.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -166,6 +179,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\avatar.png" />
+    <Content Include="img\avatar04.png" />
+    <Content Include="img\avatar5.png" />
     <Content Include="img\bg.jpg" />
     <Content Include="img\callout.jpg" />
     <Content Include="img\porfolio-1.png" />
@@ -295,10 +311,15 @@
     <Content Include="Views\ManagerDashboard\Delete.cshtml" />
     <Content Include="Views\ManagerDashboard\ViewAssignBook.cshtml" />
     <Content Include="Views\Shared\_UserDashBoardPartial.cshtml" />
+    <Content Include="Views\Shared\_RegisterLayout.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Shared\_SimpleUserLayoutPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Asserts\Book_Images\" />
+    <Folder Include="Asserts\Login Layouts Files\" />
+    <Folder Include="Asserts\RegisterLayoutsFiles\fonts\" />
     <Folder Include="Shared\" />
   </ItemGroup>
   <ItemGroup>

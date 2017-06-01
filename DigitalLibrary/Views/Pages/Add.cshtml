@@ -17,45 +17,42 @@
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 }
-<h2>Create</h2>
+<h2>Create Page</h2>
 
 
-@using (Html.BeginForm("Add", "Pages", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Add", "Pages", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
 {
 
     @Html.AntiForgeryToken()
-    <div class="row">
-        <div class="form-horizontal" style="width:600px; margin:0 auto;">
-            <h4>Page</h4>
-            <hr />
+
             <div class="form-group">
-                <label name="" class="col-md-2 form-control">Baab Name</label>
-                <div class="col-md-10">
+                <label name="" class="col-md-2 control-label">Baab Name</label>
+                <div class="col-md-6">
                     <input name="BaabId" type="text" class="form-control" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-2 form-control">Book Name</label>
-                <div class="col-md-10">
+                <label class="col-md-2 control-label">Book Name</label>
+                <div class="col-md-6">
                     <input name="BookId" type="text" class="form-control" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-2 form-control">Page Tag</label>
-                <div class="col-md-10">
+                <label class="col-md-2 control-label">Page Tag</label>
+                <div class="col-md-6">
                     <input name="PageTag" type="text" class="form-control" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-2 form-control">Page Number</label>
-                <div class="col-md-10">
+                <label class="col-md-2 control-label">Page Number</label>
+                <div class="col-md-6">
                     <input name="PageNumberDisplay" type="text" class="form-control" />
-                </div><hr />
+                </div>
             </div>
             <div class="form-group">
-                <label class="col-md-2 form-control">Page Details</label>
-                <div class="col-md-6 col-xs-12">
-                    <textarea id="TextArea1" name="PageDetails" maxlength="900" rows="10" cols="90" class="form-control"></textarea>
+                <label class="col-md-2 control-label">Page Details</label>
+                <div class="col-md-6  col-xs-12">
+                    <textarea id="TextArea1" name="PageDetails" maxlength="100" rows="10" cols="40" class="form-control"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -63,10 +60,8 @@
                     <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
-        </div>
-    </div>
-}
 
 <div>
 
 </div>
+}

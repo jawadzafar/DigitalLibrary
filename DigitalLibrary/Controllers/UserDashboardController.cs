@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DigitalLibrary.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace DigitalLibrary.Controllers
         // GET: UserDashboard
         public ActionResult Index()
         {
-            return View();
+            return View(new UserDashboardViewModel());
         }
     }
 }

@@ -17,27 +17,24 @@
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 }
-<h2>Create</h2>
+<h2>Create Publisher</h2>
 
 
-@using (Html.BeginForm("Add", "Publishers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Add", "Publishers", FormMethod.Post, new { enctype = "multipart/form-data" , @class = "form-horizontal" }))
 {
 
     @Html.AntiForgeryToken()
-    <div class="row" >
-        <div class="form-horizontal"  style="width:600px; margin:0 auto;">
-            <h4>Publisher </h4>
-            <hr />
+   
             <div class="form-group">
-                <label name="" class="col-md-2 form-control">Name</label>
-                <div class="col-md-10">
+                <label name="" class="col-md-2 control-label">Name</label>
+                <div class="col-md-6">
                     <input name="Name" type="text" class="form-control" />
                 </div>
             </div>
           
             <div class="form-group">
-                <label class="col-md-2 form-control"> Publisher Address</label>
-                <div class="col-md-10">
+                <label class="col-md-2 control-label"> Publisher Address</label>
+                <div class="col-md-6">
                     <input name="Address" type="text" class="form-control" />
                 </div>
             </div>
@@ -46,8 +43,7 @@
                     <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
-        </div>
-    </div>
+     
 }
 
 <div>

@@ -18,61 +18,58 @@
     }
 }
 <section class="content">
-    <h2>Create</h2>
+    <h2>Create Book</h2>
 
 
-    @using (Html.BeginForm("Add", "Books", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Add", "Books", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
     {
 
         @Html.AntiForgeryToken()
-        <div class="row" style="width:800px; margin:0 auto;">
-            <div class="form-horizontal">
-                <h4>Book</h4>
-                <hr />
+        
                 <div class="form-group">
-                    <label name="" class="form-control">Name</label>
+                    <label name="" class="col-md-2 control-label">Name</label>
                     <div class="col-md-5">
                         <input name="Name" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control">Select Authors</label>
+                    <label class="col-md-2 control-label">Select Authors</label>
                     <div class="col-md-5">
                         <input name="AuthorId" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control">Select Publisher</label>
+                    <label class="col-md-2 control-label">Select Publisher</label>
                     <div class="col-md-5">
                         <input name="PublisherId" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control">Publishing Year</label>
+                    <label class="col-md-2 control-label">Publishing Year</label>
                     <div class="col-md-5">
                         <input name="PublishingYear" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control">Edition Number</label>
+                    <label class="col-md-2 control-label">Edition Number</label>
                     <div class="col-md-5">
                         <input name="EditionNumber" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control">No. of Pages</label>
+                    <label class="col-md-2 control-label">No. of Pages</label>
                     <div class="col-md-5">
                         <input name="NoOfPages" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control">No. of Abwaabs</label>
+                    <label class="col-md-2 control-label">No. of Abwaabs</label>
                     <div class="col-md-5">
                         <input name="NoOfAbwaabs" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control"> Book Cover</label>
+                    <label class="col-md-2 control-label"> Book Cover</label>
                     <div class="col-md-5">
                         <input type="file" title="search image" name="file">
                     </div>
@@ -82,8 +79,7 @@
                         <input type="submit" value="Create" class="btn btn-default" />
                     </div>
                 </div>
-                </div>
-            </div>
+                
     }
 
     <div>

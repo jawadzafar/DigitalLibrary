@@ -17,7 +17,7 @@ body {
 }
 
 a {
-    color: rgb(255,165,0) !important;
+    color: white !important;
 }
 
 .call-to-action{
@@ -27,7 +27,7 @@ a {
     color:white
 }
 .text-primary {
-    color: rgb(255,165,0) !important;
+    color: blue  !important;
 }
 body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -265,4 +265,10 @@ footer {
   position: fixed;
   bottom: 5px;
   right: 5px;
+}
+.social-media{
+    color:blue
+}
+.cross-btn{
+    color:black
 }
