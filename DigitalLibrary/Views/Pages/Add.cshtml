@@ -1,5 +1,13 @@
 ﻿@model  DigitalLibrary.Models.Page
+@using DigitalLibrary.Models;
+@{
+    Database_Helpers db = new Database_Helpers();
 
+    var listofBooks = Database_Helpers.QueryList("select * from Books");
+
+    var listofAbwaabs = Database_Helpers.QueryList("select * from Abwaabs");
+
+}
 
 @using DigitalLibrary.Models
 @{
@@ -28,13 +36,24 @@
             <div class="form-group">
                 <label name="" class="col-md-2 control-label">Baab Name</label>
                 <div class="col-md-6">
-                    <input name="BaabId" type="text" class="form-control" />
+                    <select name="BaabId" class="form-control">
+                        @foreach (var item in listofAbwaabs)
+                        {
+                            <option value="@item["Id"]">@item["Name"]</option>
+                        }
+                    </select>
+
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label">Book Name</label>
                 <div class="col-md-6">
-                    <input name="BookId" type="text" class="form-control" />
+                    <select name="BookId" class="form-control">
+                        @foreach (var item in listofBooks)
+                        {
+                            <option value="@item["Id"]">@item["Name"]</option>
+                        }
+                    </select>
                 </div>
             </div>
             <div class="form-group">

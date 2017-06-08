@@ -17,6 +17,15 @@
     }
 }
 
+@{
+    Database_Helpers db = new Database_Helpers();
+
+    var listofAuthors = Database_Helpers.QueryList("select * from Authors");
+
+    var listofPublishers = Database_Helpers.QueryList("select * from Publishers");
+
+}
+
 <section class="content">
     <h2>Update</h2>
 
@@ -25,62 +34,73 @@
     {
 
         @Html.AntiForgeryToken()
-        <div class="row">
-            <div class="form-horizontal">
+       
                 <h4>Book</h4>
                 <hr />
                 <input type="hidden" name="Id" value="@Model.Id" />
                 <div class="form-group">
-                    <label name="" class="col-md-2 form-control">Name</label>
+                    <label name="" class="col-md-2 control-label">Name</label>
                     <div class="col-md-10">
                         <input name="Name" type="text" value="@Model.Name" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 form-control">Select Authors</label>
+                    <label class="col-md-2 control-label">Select Authors</label>
+                    <div class="col-md-10 ">
+                        <select name="AuthorId" class="form-control">
+                            @foreach (var item in listofAuthors)
+                            {
+                                <option value="@item["Id"]">@item["Name"]</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Select Publisher</label>
                     <div class="col-md-10">
-                        <input name="AuthorId" type="text" value="@Model.AuthorId" class="form-control" />
+                        <select name="PublisherId" class="form-control">
+                            @foreach (var item in listofPublishers)
+                            {
+                                <option value="@item["Id"]">@item["Name"]</option>
+                            }
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 form-control">Select Publisher</label>
-                    <div class="col-md-10">
-                        <input name="PublisherId" type="text" value="@Model.PublisherId" class="form-control" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-2 form-control">Publishing Year</label>
+                    <label class="col-md-2 control-label">Publishing Year</label>
                     <div class="col-md-10">
                         <input name="PublishingYear" type="text" value="@Model.PublishingYear" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 form-control">Edition Number</label>
+                    <label class="col-md-2 control-label">Edition Number</label>
                     <div class="col-md-10">
                         <input name="EditionNumber" type="text" value="@Model.EditionNumber" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 form-control">No. of Pages</label>
+                    <label class="col-md-2 control-label">No. of Pages</label>
                     <div class="col-md-10">
                         <input name="NoOfPages" type="text" value="@Model.NoOfPages" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 form-control">No. of Abwaabs</label>
+                    <label class="col-md-2 control-label">No. of Abwaabs</label>
                     <div class="col-md-10">
                         <input name="NoOfAbwaabs" type="text" value="@Model.NoOfAbwaabs" class="form-control" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-2 form-control"> Book Cover</label>
+                    <label class="col-md-2 control-label"> Book Cover</label>
                     <div class="col-md-10">
                         <img src="~/Asserts/Book_Images/@Model.BookCover" width="120" height="120" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 form-control"> Book Cover</label>
+                    <label class="col-md-2 control-label"> Book Cover</label>
                     <div class="col-md-10">
                         <input type="file" title="search image" name="file">
                     </div>
@@ -90,8 +110,7 @@
                         <input type="submit" value="Update" class="btn btn-default" />
                     </div>
                 </div>
-            </div>
-        </div>
+       
     }
 
     <div>

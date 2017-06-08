@@ -18,39 +18,37 @@
     }
 }
 <section class="content">
-<h2>Update</h2>
+<h2>Update Abaabs</h2>
 
 
 @using (Html.BeginForm("Edit", "Abwaabs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
     @Html.AntiForgeryToken()
-    <div class="row">
-        <div class="form-horizontal">
-            <h4>Abaabs</h4>
+    
             <hr />
             <input type="hidden" name="Id" value="@Model.Id" />
             <div class="form-group">
-                <label name="" class="col-md-2 form-control">Name</label>
+                <label name="" class="col-md-2 control-label">Name</label>
                 <div class="col-md-10">
                     <input name="Name" type="text" value="@Model.Name" class="form-control" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-2 form-control">Baab No</label>
+                <label class="col-md-2 control-label">Baab No</label>
                 <div class="col-md-10">
                     <input name="BaabNo" type="text" value="@Model.BaabNo" class="form-control" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-2 form-control">No Of Pages</label>
+                <label class="col-md-2 control-label">No Of Pages</label>
                 <div class="col-md-10">
                     <input name="NoOfPages" type="text" value="@Model.NoOfPages" class="form-control" />
                 </div>
             </div>
             
             <div class="form-group">
-                <label class="col-md-2 form-control">Book Name</label>
+                <label class="col-md-2 control-label">Book Name</label>
                 <div class="col-md-10">
                     <input name="BookId" type="text" value="@Model.BookId" class="form-control" />
                 </div>
@@ -60,8 +58,7 @@
                     <input type="submit" value="Update" class="btn btn-default" />
                 </div>
             </div>
-        </div>
-    </div>
+   
 }
 
 <div>

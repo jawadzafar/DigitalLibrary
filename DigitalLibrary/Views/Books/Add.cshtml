@@ -1,5 +1,13 @@
 ﻿@model  DigitalLibrary.Models.Book
+@using DigitalLibrary.Models;
+@{ 
+    Database_Helpers db = new Database_Helpers();
 
+    var listofAuthors =Database_Helpers.QueryList("select * from Authors");
+
+    var listofPublishers = Database_Helpers.QueryList("select * from Publishers");
+
+}
 
 @using DigitalLibrary.Models
 @{
@@ -25,23 +33,36 @@
     {
 
         @Html.AntiForgeryToken()
-        
+
                 <div class="form-group">
                     <label name="" class="col-md-2 control-label">Name</label>
                     <div class="col-md-5">
                         <input name="Name" type="text" class="form-control" />
                     </div>
                 </div>
+                
                 <div class="form-group">
                     <label class="col-md-2 control-label">Select Authors</label>
-                    <div class="col-md-5">
-                        <input name="AuthorId" type="text" class="form-control" />
+                    <div class="col-md-5 ">
+                        <select name="AuthorId" class="form-control">
+                            @foreach (var item in listofAuthors)
+                            {
+                                <option value="@item["Id"]">@item["Name"]</option>
+                            }
+                        </select>
                     </div>
                 </div>
+
+
                 <div class="form-group">
                     <label class="col-md-2 control-label">Select Publisher</label>
                     <div class="col-md-5">
-                        <input name="PublisherId" type="text" class="form-control" />
+                        <select name="PublisherId" class="form-control">
+                            @foreach (var item in listofPublishers)
+                            {
+                                <option value="@item["Id"]">@item["Name"]</option>
+                            }
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">

@@ -220,23 +220,86 @@
         <!-- /.container -->
     </section>
     <!-- Call to Action -->
-    <aside class="call-to-action bg-primary">
+    <section id="services" class="services bg-primary">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h3>The buttons below are impossible to resist.</h3>
-                    <button class="btn btn-light" type="button" id="ClickMe" onclick="location.href='@Url.Action("", "")'">Click Me </button>
-                    @Html.ActionLink("Look at Me!", "", "", new { area = "" }, new { @class = "btn btn-lg btn-dark" })
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Contributers</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+
+                                    <img src="~/img/jawad.jpg" />
+                                </span>
+                                <h4>
+                                    <strong>Jawad Zafar</strong>
+                                </h4>
+                                <p>Team Leader</p>
+                                @*@Html.ActionLink("Learn more", "IndexSearch", "GSearch", new { @class = "btn btn-light" })*@
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+
+                                    <img src="~/img/my.jpg" />
+                                </span>
+                                <h4>
+                                    <strong>Muhammad Muazam</strong>
+                                </h4>
+                                <p>Database Administrator</p>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+
+                                    <img src="~/img/khurram.jpg" />
+                                </span>
+                                <h4>
+                                    <strong>Khurram Shahzad</strong>
+                                </h4>
+                                <p>Backend Developer</p>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+
+                                    <img src="~/img/khalil.jpeg" />
+                                </span>
+                                <h4>
+                                    <strong>Khalil Ur Rehman</strong>
+                                </h4>
+                                <p>Frontend Developer</p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
                 </div>
+                <!-- /.col-lg-10 -->
             </div>
+            <!-- /.row -->
         </div>
-    </aside>
+        <!-- /.container -->
+    </section>
     <!-- Map -->
     <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.0675594196127!2d74.32465955044885!3d31.52230435410973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x52185403b4b3ad45!2sJamy+Masjid+Ashrafia!5e0!3m2!1sen!2s!4v1496902983725"></iframe>
         <br />
         <small>
-            @Styles.Render("https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A")
+            @Styles.Render("https://www.google.com/maps/place/Jamy+Masjid+Ashrafia/@31.5223044,74.3246596,17z/data=!4m18!1m12!4m11!1m3!2m2!1d74.3260704!2d31.5225376!1m6!1m2!1s0x3919048ed41bf49b:0x96fddd4a0e80d452!2sJamia+Ashrafia,+Lahore,+Pakistan!2m2!1d74.3268536!2d31.5222998!3m4!1s0x0:0x52185403b4b3ad45!8m2!3d31.5227707!4d74.3266625")
         </small>
     </section>
   
